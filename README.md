@@ -4,7 +4,7 @@
 [![Dependency Status](https://gemnasium.com/farski/shoryuken-waiter.svg)](https://gemnasium.com/farski/shoryuken-waiter)
 [![Build Status](https://travis-ci.org/farski/shoryuken-waiter.svg)](https://travis-ci.org/farski/shoryuken-waiter)
 [![Code Climate](https://codeclimate.com/github/farski/shoryuken-waiter/badges/gpa.svg)](https://codeclimate.com/github/farski/shoryuken-waiter)
-[![Coverage Status](https://coveralls.io/repos/farski/shoryuken-waiter/badge.svg?branch=master)](https://coveralls.io/r/farski/shoryuken-waiter?branch=master)
+[![Coverage Status](https://coveralls.io/repos/farski/shoryuken-waiter/badge.svg?branch=master&service=github)](https://coveralls.io/github/farski/shoryuken-waiter?branch=master)
 
 Based heavily on [`shoryuken-later`](https://github.com/joekhoobyar/shoryuken-later).
 
