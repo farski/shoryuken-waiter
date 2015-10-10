@@ -52,7 +52,7 @@ Other properties of the table, such as the **provisioned capacity** will be appl
 
 ## Internals
 
-When a job is scheduled normally `Shoryuken`, the message is sent to **SQS** with four properties `queue_url`, `message_body`, `delay_seconds`, and `message_attributes`.
+When a job is scheduled normally with `Shoryuken`, the message is sent to **SQS** with four properties `queue_url`, `message_body`, `delay_seconds`, and `message_attributes`.
 
 When the job must be delayed, `Shoryuken::Waiter` captures enough information to recreate an identical **SQS** message later on. The `message_body` and `message_attributes` are stored unaltered. `delay_seconds` is tranformed into a timestamp, relative to when the job was created, which can be used to query items from a **DynamoDB** table. The message's `queue_url` is discarded, since it can be recreated from the job's queue name, which is already captured as part of the `message_body`.
 
