@@ -44,9 +44,11 @@ end
 
 require "shoryuken/waiter/extensions/active_job_adapter" if defined? ::ActiveJob
 
-Shoryuken.on_start do
-  tables = Shoryuken::Waiter.tables
-  queues = Shoryuken.queues.uniq
-  Shoryuken.logger.info { "[Shoryuken::Waiter] Starting. Polling #{tables.count} tables for #{queues.count} queues" }
-  Shoryuken::Waiter::Querier.supervise_as :shoryuken_waiter_querier
+Shoryuken.configure_server do |config|
+  config.on(:startup) do
+    tables = Shoryuken::Waiter.tables
+    queues = Shoryuken.queues.uniq
+    Shoryuken.logger.info { "[Shoryuken::Waiter] Starting. Polling #{tables.count} tables for #{queues.count} queues" }
+    Shoryuken::Waiter::Querier.supervise_as :shoryuken_waiter_querier
+  end
 end
