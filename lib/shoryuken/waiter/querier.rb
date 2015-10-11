@@ -22,7 +22,7 @@ module Shoryuken
         query_results(table).each do |response|
           items = response.items
           logger.debug { "[Shoryuken::Waiter] Found #{items.count} delayed messages in '#{table.table_name}'" }
-          Shoryuken::Waiter::Scheduler.schedule_items(table, items)
+          Shoryuken::Waiter::Enqueuer.enqueue_items(table, items)
         end
       end
 

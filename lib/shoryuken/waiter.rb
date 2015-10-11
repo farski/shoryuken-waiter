@@ -2,7 +2,7 @@ require "celluloid"
 require "aws-sdk-resources"
 require "shoryuken"
 require "shoryuken/waiter/version"
-require "shoryuken/waiter/scheduler"
+require "shoryuken/waiter/enqueuer"
 require "shoryuken/waiter/querier"
 
 module Shoryuken

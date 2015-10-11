@@ -1,6 +1,6 @@
 module Shoryuken
   module Waiter
-    class Scheduler
+    class Enqueuer
       class << self
         include Util
 
@@ -10,7 +10,7 @@ module Shoryuken
         #
         # TODO If the actor were to crash in the middle of a batch, messages
         # could get lost
-        def schedule_items(table, items)
+        def enqueue_items(table, items)
           return if items.empty?
 
           queue_name = items.first["sqs_message_body"]["queue_name"]
