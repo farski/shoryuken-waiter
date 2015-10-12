@@ -5,6 +5,7 @@
 [![Build Status](https://travis-ci.org/farski/shoryuken-waiter.svg)](https://travis-ci.org/farski/shoryuken-waiter)
 [![Code Climate](https://codeclimate.com/github/farski/shoryuken-waiter/badges/gpa.svg)](https://codeclimate.com/github/farski/shoryuken-waiter)
 [![Coverage Status](https://coveralls.io/repos/farski/shoryuken-waiter/badge.svg?branch=master&service=github)](https://coveralls.io/github/farski/shoryuken-waiter?branch=master)
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/farski/shoryuken-waiter?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 Based heavily on the concept of [`shoryuken-later`](https://github.com/joekhoobyar/shoryuken-later), `Shoryuken::Waiter` allows jobs to be scheduled greater that 15 minutes into the future when using [Shoryuken](https://github.com/phstc/shoryuken).
 
