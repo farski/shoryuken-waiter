@@ -9,7 +9,7 @@
 
 Based heavily on the concept of [`shoryuken-later`](https://github.com/joekhoobyar/shoryuken-later), `Shoryuken::Waiter` allows jobs to be scheduled greater that 15 minutes into the future when using [Shoryuken](https://github.com/phstc/shoryuken).
 
-_**Notice:** Version 0.x is tightly coupled Rails and Shoryuken SQS queues. 1.x should add support for Shoryuken workers (currently only Active Job is supported), and more configurable DynamoDB tables._
+_**Notice:** Version 0.x is tightly coupled Rails and Shoryuken SQS queues. 1.x should add support for Shoryuken workers (currently only Active Job is supported), and more configurable DynamoDB tables. 0.0.x builds rely on Shoryuken changes that have not yet been merged into master._ 
 
 ## Usage
 
