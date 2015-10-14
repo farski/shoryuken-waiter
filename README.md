@@ -9,7 +9,7 @@
 
 Based heavily on the concept of [`shoryuken-later`](https://github.com/joekhoobyar/shoryuken-later), `Shoryuken::Waiter` allows jobs to be scheduled greater that 15 minutes into the future when using [Shoryuken](https://github.com/phstc/shoryuken).
 
-_**Notice:** Version 0.x is tightly coupled Rails and Shoryuken SQS queues. 1.x should add support for Shoryuken workers (currently only Active Job is supported), and more configurable DynamoDB tables. 0.0.x builds rely on Shoryuken changes that have not yet been merged into master._ 
+_**Notice:** Version 0.x is tightly coupled Rails and Shoryuken SQS queues. 1.x should add support for Shoryuken workers (currently only Active Job is supported), and more configurable DynamoDB tables. 0.0.x builds rely on Shoryuken changes that have not yet been merged into master._
 
 ## Usage
 
@@ -50,6 +50,14 @@ Tables being used with `Shoryuken::Waiter` must be created with certain properti
 * **Secondary index**: An index (generally a *Local Secondary Index*) must be added to the table. The `item key` of the index's **primary key** must be a `String` with the value `scheduler`, and the `sort key` of the **primary key** must be a `Number` with the value `perform_at`. The **index name** must be `scheduler-perform_at-index`. **Projected attributes** generally can be set to `all`.
 
 Other properties of the table, such as the **provisioned capacity** will be application dependent.
+
+#### Pricing
+
+Specific [pricing details](https://aws.amazon.com/dynamodb/pricing/) for **DynamoDB** should be considered when determining the cost of using the service for `Shoryuken::Waiter` with your app. [AWS's Free Tier](https://aws.amazon.com/free/), which does not expire for **DynamoDB**, provides **25 Units** of read and write capacity and **25 GB** of storage for an account. In general this would be enough capacity to support several `Shoryuken::Waiter` tables at no cost for most applications.
+
+Increasing the frequency of polling, scheduling many jobs that must be delayed, or having many jobs delayed for a very long time leading to a large on-disk footprint of the tables could lead to higher costs.
+
+Be aware that the secondary index that is required for `Shoryuken::Waiter` counts against additional throughput capacity and storage costs.
 
 ## Internals
 
